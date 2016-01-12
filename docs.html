@@ -525,6 +525,8 @@ uri.segmentCoded("append this"); // -> http://example.org/bar/foobar.html/append
 uri.search(); // returns string "?foo=bar&amp;bar=baz" (leading ?)
 // get query
 uri.query(); // returns string "foo=bar&amp;bar=baz" (no leading ?)
+// get parameter data map
+uri.search(true); // returns { foo: "bar", hello : ["world", "mars"] }
 
 // .query() and .search() behave the same for the following:
 
@@ -537,10 +539,7 @@ uri.search("foo=bar&amp;bar=baz"); // returns the URI instance for chaining
 uri.search(""); // returns the URI instance for chaining
 // uri == "http://example.org/bar/world.html"
 
-// get data map:
-uri.search(true); // returns { foo: "bar", hello : ["world", "mars"] }
-
-// set data map:
+// set parameter data map:
 uri.search({ foo: "bar", hello : ["world", "mars"] });
 // uri == "http://example.org/bar/world.html?foo=bar&amp;hello=world&amp;hello=mars"
 
